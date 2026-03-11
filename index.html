@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MySQL Beginner Documentation</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f8;
+    color:#333;
+}
+
+header{
+    background:#0f4c81;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+.container{
+    display:flex;
+}
+
+nav{
+    width:250px;
+    background:#ffffff;
+    border-right:1px solid #ddd;
+    height:100vh;
+    overflow:auto;
+    padding:20px;
+}
+
+nav a{
+    display:block;
+    padding:8px;
+    text-decoration:none;
+    color:#333;
+    margin-bottom:4px;
+}
+
+nav a:hover{
+    background:#eef3f7;
+}
+
+main{
+    flex:1;
+    padding:40px;
+}
+
+h2{
+    border-bottom:2px solid #eee;
+    padding-bottom:5px;
+}
+
+pre{
+    background:#1e1e1e;
+    color:#dcdcdc;
+    padding:15px;
+    border-radius:6px;
+    overflow:auto;
+}
+
+table{
+    border-collapse:collapse;
+    margin:15px 0;
+    width:100%;
+}
+
+th,td{
+    border:1px solid #ccc;
+    padding:8px;
+    text-align:left;
+}
+
+th{
+    background:#f0f0f0;
+}
+
+code{
+    background:#eee;
+    padding:2px 4px;
+    border-radius:4px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>MySQL Beginner Documentation</h1>
+<p>Step-by-Step Guide to Learning MySQL</p>
+</header>
+
+<div class="container">
+
+<nav>
+<h3>Contents</h3>
+<a href="#intro">1. What is MySQL</a>
+<a href="#login">2. Login to MySQL</a>
+<a href="#showdb">3. Show Databases</a>
+<a href="#createdb">4. Create Database</a>
+<a href="#use">5. Use Database</a>
+<a href="#createtable">6. Create Table</a>
+<a href="#showtables">7. Show Tables</a>
+<a href="#describe">8. Describe Table</a>
+<a href="#primarykey">9. Primary Key</a>
+<a href="#autoincrement">10. Auto Increment</a>
+<a href="#insert">11. Insert Data</a>
+<a href="#select">12. Select Data</a>
+<a href="#where">13. WHERE Clause</a>
+<a href="#update">14. Update Data</a>
+<a href="#delete">15. Delete Data</a>
+<a href="#drop">16. Drop Table</a>
+<a href="#workflow">17. Full Workflow</a>
+<a href="#datatypes">18. Data Types</a>
+<a href="#best">19. Best Practices</a>
+</nav>
+
+<main>
+
+<section id="intro">
+<h2>1. What is MySQL</h2>
+<p>MySQL is a relational database system used to store and manage structured data.</p>
+
+<table>
+<tr><th>Concept</th><th>Description</th></tr>
+<tr><td>Database</td><td>Container holding tables</td></tr>
+<tr><td>Table</td><td>Structure containing rows and columns</td></tr>
+<tr><td>Row</td><td>A single record</td></tr>
+<tr><td>Column</td><td>An attribute of the record</td></tr>
+<tr><td>Primary Key</td><td>Unique identifier for each row</td></tr>
+</table>
+</section>
+
+<section id="login">
+<h2>2. Logging Into MySQL</h2>
+<p>Use the MySQL client to login:</p>
+
+<pre>
+mysql -u root -p
+</pre>
+
+<p>Explanation:</p>
+
+<table>
+<tr><th>Part</th><th>Meaning</th></tr>
+<tr><td>mysql</td><td>MySQL client</td></tr>
+<tr><td>-u</td><td>username</td></tr>
+<tr><td>root</td><td>administrator account</td></tr>
+<tr><td>-p</td><td>ask for password</td></tr>
+</table>
+
+</section>
+
+<section id="showdb">
+<h2>3. Viewing Databases</h2>
+
+<pre>
+SHOW DATABASES;
+</pre>
+
+</section>
+
+<section id="createdb">
+<h2>4. Creating a Database</h2>
+
+<pre>
+CREATE DATABASE company_db;
+</pre>
+
+</section>
+
+<section id="use">
+<h2>5. Selecting a Database</h2>
+
+<pre>
+USE company_db;
+</pre>
+
+</section>
+
+<section id="createtable">
+<h2>6. Creating a Table</h2>
+
+<pre>
+CREATE TABLE users (
+    id INT,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+</pre>
+
+</section>
+
+<section id="showtables">
+<h2>7. Showing Tables</h2>
+
+<pre>
+SHOW TABLES;
+</pre>
+
+</section>
+
+<section id="describe">
+<h2>8. Viewing Table Structure</h2>
+
+<pre>
+DESCRIBE users;
+</pre>
+
+</section>
+
+<section id="primarykey">
+<h2>9. Primary Key</h2>
+
+<p>A Primary Key uniquely identifies each row in a table.</p>
+
+<pre>
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+</pre>
+
+</section>
+
+<section id="autoincrement">
+<h2>10. Auto Increment</h2>
+
+<p>AUTO_INCREMENT automatically increases the value of the ID column.</p>
+
+<pre>
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+</pre>
+
+</section>
+
+<section id="insert">
+<h2>11. Inserting Data</h2>
+
+<pre>
+INSERT INTO users (name,email)
+VALUES ('John','john@email.com');
+</pre>
+
+</section>
+
+<section id="select">
+<h2>12. Retrieving Data</h2>
+
+<pre>
+SELECT * FROM users;
+</pre>
+
+</section>
+
+<section id="where">
+<h2>13. Filtering Data</h2>
+
+<pre>
+SELECT * FROM users
+WHERE id > 2;
+</pre>
+
+</section>
+
+<section id="update">
+<h2>14. Updating Data</h2>
+
+<pre>
+UPDATE users
+SET email='new@email.com'
+WHERE id=1;
+</pre>
+
+</section>
+
+<section id="delete">
+<h2>15. Deleting Data</h2>
+
+<pre>
+DELETE FROM users
+WHERE id=3;
+</pre>
+
+</section>
+
+<section id="drop">
+<h2>16. Dropping a Table</h2>
+
+<pre>
+DROP TABLE users;
+</pre>
+
+</section>
+
+<section id="workflow">
+<h2>17. Example Full Workflow</h2>
+
+<pre>
+mysql -u root -p
+
+CREATE DATABASE company_db;
+
+USE company_db;
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50),
+    salary INT
+);
+
+INSERT INTO employees (name,department,salary)
+VALUES ('John','IT',60000);
+
+SELECT * FROM employees;
+</pre>
+
+</section>
+
+<section id="datatypes">
+<h2>18. Common Data Types</h2>
+
+<table>
+<tr><th>Type</th><th>Description</th></tr>
+<tr><td>INT</td><td>Integer numbers</td></tr>
+<tr><td>VARCHAR</td><td>Variable length text</td></tr>
+<tr><td>TEXT</td><td>Large text</td></tr>
+<tr><td>DATE</td><td>Date</td></tr>
+<tr><td>DATETIME</td><td>Date and time</td></tr>
+<tr><td>BOOLEAN</td><td>True or False</td></tr>
+</table>
+
+</section>
+
+<section id="best">
+<h2>19. Best Practices</h2>
+
+<ul>
+<li>Always use a primary key</li>
+<li>Use AUTO_INCREMENT for IDs</li>
+<li>Use meaningful table names</li>
+<li>Always include WHERE when updating or deleting</li>
+<li>Choose appropriate data types</li>
+</ul>
+
+</section>
+
+</main>
+</div>
+
+</body>
+</html>
